@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using ToDoList.Model;
 using ToDoList.Service.Interfaces;
 
 namespace ToDoList.Controllers
@@ -25,9 +26,9 @@ namespace ToDoList.Controllers
 
         [HttpPost]
         [Route("create")]
-        public async Task<IActionResult> Create(string description)
+        public async Task<IActionResult> Create([FromBody]ToDoTask task)
         {
-            var result = await _toDoListService.Create(description);
+            var result = await _toDoListService.Create(task.Description);
             if (result != 0)
             {
                 return CreatedAtAction(
@@ -40,9 +41,9 @@ namespace ToDoList.Controllers
 
         [HttpPost]
         [Route("update")]
-        public async Task<IActionResult> Update(int id)
+        public async Task<IActionResult> Update([FromBody]ToDoTask task)
         {
-            await _toDoListService.Update(id);
+            await _toDoListService.Update(task.Id);
 
             return Ok();
         }
