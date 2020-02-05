@@ -5,6 +5,7 @@
 * Spent most of the time figuring out why does WebAPI turn controllers' input argument into nulls. 
 Turned out that it handles primitive types differently, hence I've passed in a complex type (ToDoTask). Also, spent some time with problem with CORS.
 In the next iteration, I would set the return type to be a complex type (ToDoTask) and handle it in frontend.
-Also, I'd separate the frontend React code into components and put them in separate parts.
+Also, I'd separate the frontend React code into components and put them in separate parts. Add validation to user input & check for nulls.
 Didn't use Typescript as never worked with it and thought I'd go with what I know.
-
+### EDIT:
+Frontend didn't seem to work in Mozilla Firefox, worked well in Chrome and Edge browsers.
